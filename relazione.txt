@@ -1,0 +1,16 @@
+L'obiettivo di questo programma è di realizzare un gioco pensato per due giocatori, i quali interpreteranno il Player 1 e il Player 2 controllando delle macchine, lo scopo dei giocatori è quello di colpire la palla (oggetto sferico nero posizionato al centro dello schermo) e fare in modo che la palla arrivi nella zona goal avversaria per aumentare il proprio punteggio.
+
+Scelte di implementazione:
+1. Libreria pygame:
+	- Libreria utilizzata in quanto fornisce le funzionalità per gestire la grafica, gli input e le collisioni
+	- Lo schermo ha una dimensione normalmente impostata a 1280x720 pixel con uno sfondo personalizzato scalato per corrispondere alle dimensioni della finestra
+	- Gestisce gli input dei due giocatori permettendo loro di muoversi liberamente entro i limiti della finestra
+
+2. Divisione in classi:
+	- Classe Player = La classe Player rappresenta i giocatori impostando un'immagine personalizzata, una posizione iniziale e una velocità; implementato di un sistema di movimento per permettere ai giocatori di muoversi utilizzando i tasti WASD (Player 1) e le freccette (Player 2); i giocatori sono dotati di una hitbox principale per le collisioni generali e di due hitbox secondarie (superiore e inferiore) per gestire in modo preciso le collisioni con la palla.
+	- Classe Ball = La classe Ball gestisce la posizione, il movimento e le collisioni della palla; quando una palla entra in contatto con un giocatore essa cambia direzione in base alla parte del giocatore colpita; implementato un sistema di limitazioni per impedire alla palla di uscire dai confini della finestra.
+	- Classe Goal = La classe Goal rappresenta aree rettangolari, quando la palla entra in una di queste zone viene assegnato un punto al giocatore avversario.
+
+3. Sistema punti:
+	- Ogni volta che un giocatore segna un punto le posizione dei giocatori e della palla vengono resettati (posizione iniziale di apertura gioco).
+	- Il punteggio viene mostrato in alto a schermo in corrispondenza delle aree di campo dei rispettivi giocatori e si aggiorna in tempo reale.
